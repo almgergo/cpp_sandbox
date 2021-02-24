@@ -1,6 +1,8 @@
 //
 // Created by almge on 2/23/2021.
 //
+#pragma once
+
 #include <array>
 #include <iostream>
 #include <eigen/StdVector>
@@ -10,18 +12,15 @@
 
 
 class Particle {
-private:
-    std::array<double, 3> position;
-    std::array<double, 3> velocity;
-    double mass;
-public:
-    Particle(const std::array<double, 3>& position,
-             const std::array<double, 3>& velocity,
-             double mass) : position(position), velocity(velocity), mass(mass) {}
 
-    std::array<double, 3> getPosition() {
-        return position;
-    }
+public:
+    Eigen::Vector3d position;
+    Eigen::Vector3d velocity;
+    double mass;
+
+    Particle(const Eigen::Vector3d &position,
+             const Eigen::Vector3d &velocity,
+             double mass) : position(position), velocity(velocity), mass(mass) {}
 
     void print();
 };

@@ -1,6 +1,7 @@
 //
 // Created by almge on 2/23/2021.
 //
+#pragma once
 
 #include "../model/Particle.h"
 
