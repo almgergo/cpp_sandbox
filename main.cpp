@@ -4,9 +4,16 @@
 
 #include "model/Particle.h"
 #include "model/World.h"
+#include "app/CApp.h"
 
+int main(int argc, char *argv[]) {
+    CApp* app = new CApp();
+    app->initSDL();
 
-int main() {
+    return 0;
+}
+
+void WorldTest() {
     size_t N = 100;
 
     std::mt19937 generator(123);
@@ -46,6 +53,4 @@ int main() {
 //            std::cout << "Energy: " << systemEnergy << ", difference: " << systemEnergy - initialEnergy << std::endl;
 //        }
 //    }
-
-    return 0;
 }
