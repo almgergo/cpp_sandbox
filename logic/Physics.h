@@ -17,6 +17,8 @@ public:
     Physics(double dt, double G): dt(dt), G(G) {}
 
     void InteractParticles(Particle& particle1, Particle& particle2);
+    double calculatePotentialEnergy(const Particle& particle1, const Particle& particle2);
+    double calculateKineticEnergy(const Particle& particle);
 };
 
 

@@ -20,7 +20,8 @@ public:
 
     World(double dt, double G) : physics(dt, G) {}
 
-    void ProgressWorld();
+    void progressWorld();
+    double systemEnergy();
 };
 
 

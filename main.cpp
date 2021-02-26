@@ -20,135 +20,31 @@ int main() {
     auto particles = std::vector<std::unique_ptr<Particle>>();
     particles.reserve(100);
 
-    for (auto i = 0; i < N; i++) {
-        Eigen::Vector3d position(dis(generator), dis(generator), dis(generator));
-//        Eigen::Vector3d velocity (dis(generator)*0.01, dis(generator)*0.01, dis(generator)*0.01);
-        Eigen::Vector3d velocity(0, 0, 0);
+    particles.push_back(std::make_unique<Particle>(Eigen::Vector3d(0, 0, 0), Eigen::Vector3d(0, 0, 0), 1));
+    particles.push_back(std::make_unique<Particle>(Eigen::Vector3d(2, 2, 2), Eigen::Vector3d(0, 0, 0), 1));
 
-        auto particle = std::make_unique<Particle>(position, velocity, 1);
-        particles.push_back(std::move(particle));
-    }
+//    for (auto i = 0; i < N; i++) {
+//        Eigen::Vector3d position(dis(generator), dis(generator), dis(generator));
+////        Eigen::Vector3d velocity (dis(generator)*0.01, dis(generator)*0.01, dis(generator)*0.01);
+//        Eigen::Vector3d velocity(0, 0, 0);
+//
+//        auto particle = std::make_unique<Particle>(position, velocity, 1);
+//        particles.push_back(std::move(particle));
+//    }
 
     world->particles = std::move(particles);
+
+    double initialEnergy = world->systemEnergy();
+
+//    for (size_t i = 0; i < 999999; i++) {
+//        world->progressWorld();
 //
-//    for (std::unique_ptr<Particle> &p : world->particles) {
-//        p->print();
-//        break;
-//    }
-    auto p1 = Particle(Eigen::Vector3d(0, 0, 0), Eigen::Vector3d(0, 0, 0), 1);
-    auto p2 = Particle(Eigen::Vector3d(2, 2, 0), Eigen::Vector3d(0, 0, 0), 1);
-
-    for (size_t i = 0; i < 9999]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    ==10=99; i++) {
-        if (i % 10000 == 0) {
-            p1.print();
-        }
-        world->physics.InteractParticles(p1, p2);
-    }
-
-//    for (std::unique_ptr<Particle> &p : world->particles) {
-//        p->print();
-//        break;
+//        if (i % 5000 == 0) {
+//            double systemEnergy = world->systemEnergy();
+//            if (systemEnergy > 1)
+//                world->particles[0]->print();
+//            std::cout << "Energy: " << systemEnergy << ", difference: " << systemEnergy - initialEnergy << std::endl;
+//        }
 //    }
 
     return 0;
