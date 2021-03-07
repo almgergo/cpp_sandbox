@@ -10,6 +10,16 @@ void World::progressWorld() {
             physics.InteractParticles(*particles[i], *particles[j]);
         }
     }
+
+    // Copy coordinates to Graphics
+    std::vector<GLfloat> spreadCoordinates;
+    spreadCoordinates.reserve(particles.size() * 3);
+    for (const auto& p : particles) {
+        spreadCoordinates.push_back(p->position[0]);
+        spreadCoordinates.push_back(p->position[1]);
+        spreadCoordinates.push_back(p->position[2]);
+    }
+    graphics->createPoints(spreadCoordinates);
 }
 
 double World::systemEnergy() {

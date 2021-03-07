@@ -11,7 +11,7 @@ void Physics::InteractParticles(Particle &particle1, Particle &particle2) {
 
     Eigen::Vector3d normal = differenceVector.normalized();
 
-    double force = distance > 0.1 ? G / distance : 0;
+    double force = distance > 0.02 ? G / distance : 0;
 
     Eigen::Vector3d acceleration = normal * force;
 
