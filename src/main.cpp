@@ -8,7 +8,8 @@
 
 int main(int argc, char *argv[]) {
     CApp* app = new CApp();
-    app->initSDL();
+//    app->initSDL();
+    app->initApp();
 
     return 0;
 }
