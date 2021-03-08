@@ -81,7 +81,6 @@ void Graphics::createPoints(std::vector<GLfloat> points) {
     GLFWAPI::glGenBuffers(1, &VBO);
     GLFWAPI::glBindBuffer(GL_ARRAY_BUFFER, VBO);
     GLFWAPI::glBufferData(GL_ARRAY_BUFFER, points.size() * sizeof(GLfloat), &points[0], GL_STATIC_DRAW);
-    glbuffer
 
     GLFWAPI::glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
     GLFWAPI::glEnableVertexAttribArray(0);
