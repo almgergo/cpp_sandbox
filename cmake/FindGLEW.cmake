@@ -29,7 +29,7 @@ IF (WIN32)
     FIND_LIBRARY( GLEW_GLEW_LIBRARY
       NAMES glew glew32
       PATHS
-      $ENV{GLEW_ROOT_PATH}/lib
+      $ENV{GLEW_ROOT_PATH}/lib/Release/x64
       ${OPENGL_LIBRARY_DIR}
     )
 
