@@ -342,7 +342,7 @@ function(__build_ir)
     # Remove absolute path to source file
     list(REMOVE_ITEM current_sources ${SDK_BUILD_IR_SOURCE})
     # Remove relative path to source file
-    string(REPLACE "${CMAKE_CURRENT_SOURCE_DIR}/" ""
+    string(REPLACE ".." ""
       rel_source_file ${SDK_BUILD_IR_SOURCE}
     )
     list(REMOVE_ITEM current_sources ${rel_source_file})

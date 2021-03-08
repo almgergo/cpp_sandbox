@@ -11,7 +11,7 @@ find_path(METIS_INCLUDES
   $ENV{METISDIR} 
   ${INCLUDE_INSTALL_DIR} 
   PATH_SUFFIXES
-  .
+        ..
   metis
   include
 )

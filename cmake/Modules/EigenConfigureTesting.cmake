@@ -12,7 +12,7 @@ add_custom_target(check COMMAND "ctest")
 add_dependencies(check buildtests)
 
 # check whether /bin/bash exists
-find_file(EIGEN_BIN_BASH_EXISTS "/bin/bash" PATHS "/" NO_DEFAULT_PATH)
+find_file(EIGEN_BIN_BASH_EXISTS "/bin/bash" PATHS "." NO_DEFAULT_PATH)
 
 # This call activates testing and generates the DartConfiguration.tcl
 include(CTest)
