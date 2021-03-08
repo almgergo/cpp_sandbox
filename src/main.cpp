@@ -1,8 +1,8 @@
 #include <iostream>
 #include <array>
-
-#include "model/Particle.h"
-#include "model/World.h"
+//
+//#include "model/Particle.h"
+//#include "model/World.h"
 #include "logic/SyclPhysics.h"
 
 int main(int argc, char *argv[]) {
