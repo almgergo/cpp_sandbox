@@ -5,7 +5,7 @@
 
 #include <array>
 #include <iostream>
-#include <Eigen/StdVector>
+#include <eigen3/Eigen/StdVector>
 
 #ifndef SIMULATOR_PARTICLE_H
 #define SIMULATOR_PARTICLE_H

@@ -5,6 +5,7 @@
 
 #include <algorithm>
 #include <random>
+#include <memory>
 #include <chrono>
 
 #include "Particle.h"
@@ -24,7 +25,7 @@ public:
     Physics physics;
     std::vector<std::unique_ptr<Particle>> particles;
 
-    World(double dt, double G): physics(dt, G) {
+    World(double dt, double G) : physics(dt, G) {
     }
 
     void initGraphics() {
@@ -40,9 +41,9 @@ public:
         particles.reserve(100);
 
         for (auto i = 0; i < N; i++) {
-            Eigen::Vector3d position(dis(generator), dis(generator), dis(generator));
-//        Eigen::Vector3d velocity (dis(generator)*0.01, dis(generator)*0.01, dis(generator)*0.01);
-            Eigen::Vector3d velocity(0, 0, 0);
+            Eigen::Vector3d position(dis(generator), dis(generator), 0);
+            Eigen::Vector3d velocity(position[1] * 0.25, - position[0] * 0.25, 0);
+//            Eigen::Vector3d velocity(0, 0, 0);
 
             auto particle = std::make_unique<Particle>(position, velocity, 1);
             particles.push_back(std::move(particle));
@@ -52,19 +53,22 @@ public:
 
     void startWorld() {
         size_t i = 0;
-        while (!graphics->shouldClose()){
+        while (!graphics->shouldClose()) {
             std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
             progressWorld();
             graphics->drawFrame();
             std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
 
-            std::cout << "Time difference = " << std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count() << "[ms]" << std::endl;
+            std::cout << "Time difference = "
+                      << std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count() << "[ms]"
+                      << std::endl;
             i++;
         }
 
     }
 
     void progressWorld();
+
     double systemEnergy();
 };
 

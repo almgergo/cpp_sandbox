@@ -53,8 +53,6 @@ elseif(DEFINED ENV{COMPUTECPP_DIR})
   set(computecpp_find_hint $ENV{COMPUTECPP_DIR})
 endif()
 
-message(COMPUTECPP_DIR ${COMPUTECPP_DIR})
-
 # Used for running executables on the host
 set(computecpp_host_find_hint ${computecpp_find_hint})
 
