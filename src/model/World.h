@@ -12,6 +12,7 @@
 #include "../logic/Physics.h"
 #include "../app/Graphics.h"
 #include "World.h"
+#include "../logic/SyclPhysics.h"
 
 #ifndef SIMULATOR_WORLD_H
 #define SIMULATOR_WORLD_H
@@ -23,9 +24,10 @@ private:
 
 public:
     Physics physics;
+    SyclPhysics syclPhysics;
     std::vector<std::unique_ptr<Particle>> particles;
 
-    World(double dt, double G) : physics(dt, G) {
+    World(double dt, double G) : physics(dt, G), syclPhysics(dt, G) {
     }
 
     void initGraphics() {

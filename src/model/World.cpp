@@ -5,11 +5,13 @@
 #include "World.h"
 
 void World::progressWorld() {
-    for (int i = 0; i < particles.size() - 1; i++) {
-        for (int j = i + 1; j < particles.size(); j++) {
-            physics.InteractParticles(*particles[i], *particles[j]);
-        }
-    }
+//    for (int i = 0; i < particles.size() - 1; i++) {
+//        for (int j = i + 1; j < particles.size(); j++) {
+//            physics.InteractParticles(*particles[i], *particles[j]);
+//        }
+//    }
+
+    syclPhysics.interactParticles(particles);
 
     // Copy coordinates to Graphics
     std::vector<GLfloat> spreadCoordinates;
